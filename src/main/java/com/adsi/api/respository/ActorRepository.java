@@ -14,4 +14,8 @@ public interface ActorRepository extends JpaRepository<Actor, Short>{
     @Query(value = "SELECT * FROM actor where first_name = :nombre",nativeQuery = true)
     List<Actor> listarPorNombre(@Param("nombre") String nombre );
     
+    @Query(value = "SELECT * FROM actor where first_name like :parametro OR last_name like :parametro ", nativeQuery = true)
+    List<Actor> consultarConLike(@Param("parametro") String parametro );
+    
+    
 }

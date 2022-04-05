@@ -24,6 +24,12 @@ public class SampleRest {
     }
     
     
+    @GetMapping("/actor/consultar/like/{parametro}")
+    List<Actor> consultarConLike(@PathVariable("parametro") String parametro ){
+        return actorService.consultarConLike('%'+parametro+'%') ;
+    }
+    
+    
     @GetMapping("/actor/listar/nombre/{nombre}")
     List<Actor> listarPorNombre(@PathVariable("nombre") String nombre ){
         return actorService.listarPorNombre(nombre);
