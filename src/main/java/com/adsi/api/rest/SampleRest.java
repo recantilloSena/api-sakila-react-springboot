@@ -1,6 +1,8 @@
 package com.adsi.api.rest;
 import com.adsi.api.modelo.Actor;
+import com.adsi.api.modelo.Film;
 import com.adsi.api.respository.ActorRepository;
+import com.adsi.api.respository.FilmRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,6 +19,9 @@ public class SampleRest {
 
     @Autowired
     ActorRepository actorService ;
+    
+    @Autowired
+    FilmRepository filmService;
     
     @GetMapping("/hola/rest")
     String holaMundo(){
@@ -51,6 +56,13 @@ public class SampleRest {
     }
     
     
+    
+    
+    
+    @GetMapping("/film/listar/actor/{id}")
+    List<Film> listarPeliculasPorActor(@PathVariable("id") Short id ){
+        return filmService.listarPeliculasPorActor(id);
+    }
     
     
     
